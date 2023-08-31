@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+{% block title %}  <title> blog page </title> {% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-9">
+            {% for blog in blog_lists %}
+            <div class="card shadow-sm my-3">
+                <div class="card-body">
+
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted small py-2">{{ blog.create_datetime }}</h6>
+                    <p class="card-text py-3">
+                        {{ blog.text }}
+                    </p>
+                    <!--<a href='/blog/{{ blog.id }}' class="btn btn-sm btn-success" >Read More</a>-->
+                    <a href= "{% url 'detail_view' blog.id %}" class="btn btn-sm btn-success" >Read More</a>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

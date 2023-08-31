@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% block title %}  <title> blog page </title> {% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-9">
+
+            <div class="card shadow-sm my-3">
+                <div class="card-body">
+                    <h1>Are you sure?</h1>
+                    <p>Are you sure to delete "{{ data.title }}" post from the website, permanently?</p>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-danger" value="Yes, delete">
+                    </form>
+                    <!--                    <a href="{% url 'blog' %}" class="btn btn-sm btn-success">Yes, delete</a>-->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
